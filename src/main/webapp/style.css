@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+/* The alert message box */
+.alert {
+    padding: 15px;
+    background-color: #5bc0de; /*#ffcdd2;*/ 
+    color: black;
+    margin-bottom: 15px;
+    position: fixed;
+    top: 0;
+/*     right: 5; */
+    width: 95%;
+}
+
+.inner-alert {
+    margin: 0 auto;
+}
+
+/* The close button */
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+    color: black;
+}
+
+body {
+    background-color: #2b3e50; /* #e74c3c; */
+    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;/* font-family: Lato, Arial;  */
+    color:#ebebeb;
+    padding: 50px 25px;
+}
+
+h1 {
+    margin-top: 5px;
+    font-weight: normal;
+    font-size: 50px;
+    font-weight: normal;
+    text-transform: uppercase;
+    /* text-align:center; */
+}
+
+.span { 
+    font-size: 15px;
+    display: block;
+    padding-left: 4px;
+}
+
+.fileInput {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.fileInput + label {
+    max-width: 80%;
+    font-size: 20px;
+    font-weight: 300;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    padding: 11px 15px; 
+}
+
+.fileLabel:before {
+    font: inherit;
+    content: "Step 1 :";
+    position: absolute;
+    display: inline-block;
+    width: 118%;
+    right: 20%;
+  }
+
+.fileInput:focus + label,
+.fileInput.has-focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+.fileInput + label svg {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.5em;
+    /* 4px */
+}
+
+.fileInput + label {
+    color: #ebebeb;
+    background-color: #d9534f;
+    /* background-color: #a13225; */
+}
+
+.fileInput:focus + label,
+.fileInput.has-focus + label,
+.fileInput + label:hover {
+    background-color: #72160c;
+}
+
+/* Submit button */
+.submitBtn {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.submitBtn svg {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    /* 4px */
+    margin-right: 0.25em;
+    /* 4px */
+}
+
+.submitBtn {
+    color: #ebebeb;
+    background-color: #d9534f; /*#a13225;*/
+}
+
+.submitBtn:focus, .submitBtn.has-focus, .submitBtn:hover {
+    background-color: #72160c;
+}
+
+.textField {
+    width: 250px;
+	border: 1px solid transparent;
+}
+
+.textField,
+.submitBtn {
+	display: inline-block;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+
+.submitBtn::-moz-focus-inner { 
+    border: 0;
+}
+
+*{
+    line-height: normal !important;
+}
+
+.box {
+   	height: 47px;
+    text-align:left;
+	margin-left:-5px;
+	margin-top: 50px;
+	font-size:0;  
+  	
+} 
