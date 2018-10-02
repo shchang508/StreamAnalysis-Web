@@ -1,6 +1,7 @@
 package com.jamie.streamAnalysis.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -38,10 +40,21 @@ public class Function001 extends BaseHttpServlet {
 
 	@Override
 	public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String errorMessage = ""; 
+		
 		try {
+			
+//			String str = null;
+//			str.toString();
+			
 			
 			String action = request.getParameter("filePath");
 			logger.info(action);
+			
+			if (StringUtils.isBlank(action)) {
+				throw new Exception("Please input a path");
+			}
 
 			StreamConvertion convert = new StreamConvertion(action + "\\");
 
@@ -83,6 +96,7 @@ public class Function001 extends BaseHttpServlet {
 				sos.close();
 			} catch (Exception e) {
 				logger.info(e);
+				errorMessage = "Export error";
 			} finally {
 				if (sos != null) {
 					sos.close();
@@ -92,6 +106,15 @@ public class Function001 extends BaseHttpServlet {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			errorMessage = "System error";
+		}
+		
+		if(StringUtils.isNotBlank(errorMessage)) {
+			response.setContentType("text/html");
+			PrintWriter out = response.getWriter();
+			out.println("<script language=\"javascript\">");
+			out.println("alert(\"" + errorMessage + "\");");
+			out.println("</script>");
 		}
 
 	}
