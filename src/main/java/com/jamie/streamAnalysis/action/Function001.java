@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -81,8 +83,11 @@ public class Function001 extends BaseHttpServlet {
 			String reportName = "report_" + new Date().getTime();
 			String destination = "D:\\Stream Analysis";
 
-			CwFileUtils.createExcelFile(workbook, reportName, destination);
-
+			//Generate file to D:
+//			CwFileUtils.createExcelFile(workbook, reportName, destination);
+			logger.info("Report name : " + reportName + ".xlsx");
+			logger.info("--------------------END--------------------"); 
+			
 			/************************************* Export to Browser ************************************/
 			ServletOutputStream sos =null;
 			
@@ -95,8 +100,9 @@ public class Function001 extends BaseHttpServlet {
 				workbook.write(sos);
 				sos.close();
 			} catch (Exception e) {
+				e.printStackTrace();
 				logger.info(e);
-				errorMessage = "Export error";
+				errorMessage = "Export error!\\r\\n" + ExceptionUtils.getCause(e);
 			} finally {
 				if (sos != null) {
 					sos.close();
@@ -106,7 +112,10 @@ public class Function001 extends BaseHttpServlet {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			errorMessage = "System error";
+//			logger.info( ExceptionUtils.getCause(e));
+			errorMessage = "System error!\\r\\n" + e.getMessage();
+			
+			logger.error(e.getMessage(), e);
 		}
 		
 		if(StringUtils.isNotBlank(errorMessage)) {

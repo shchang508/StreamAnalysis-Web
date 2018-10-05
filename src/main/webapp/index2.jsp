@@ -73,11 +73,11 @@
 	</h1>
 
 	<div class="box">
-		<input class="textField" type="text" id="inputPath"
+		<input class="textField" type="text" id="inputName"
 			placeholder="Enter path" />
 
 
-		<button class="submitBtn" onclick="doDownloadFile()">
+		<button class="submitBtn" onclick="doDownloadFile();">
 			<svg version="1.1" xmlns="http://www.w3.org/2000/svg"
 				xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 				width="24px" height="24px" viewBox="0 0 24 24"
@@ -103,12 +103,29 @@
 		</button>
 	</div>
 
-	<form id="exportForm" method="post" action="f1" 
+	<!-- 	<form id="exportForm" method="post" action="f1"  -->
+	<!-- 		onSubmit="return false;"> -->
+	<!-- 		<input type="hidden" id="filePath" name="filePath" value="" /> -->
+	<!-- 	</form> -->
+	<!-- 	<iframe id="exportFrame" name="exportFrame" src="" frameborder="0" -->
+	<!-- 		marginwidth="0" marginheight="0" style="display: none;"></iframe> -->
+
+<!-- 	<input type="text" id="inputName"> -->
+<!-- 	<button onclick="doDownloadFile();">download</button> -->
+
+	<form id="exportForm" method="post" action="f1" target="exportFrame"
 		onSubmit="return false;">
-		<input type="hidden" id="filePath" name="filePath" value="" />
+		<input type="hidden" id="fileName" name="filePath"/>
 	</form>
 	<iframe id="exportFrame" name="exportFrame" src="" frameborder="0"
 		marginwidth="0" marginheight="0" style="display: none;"></iframe>
+
+	<script>
+		function doDownloadFile() {
+			document.getElementById('fileName').value = document.getElementById('inputName').value;
+			document.getElementById('exportForm').submit();
+		}
+	</script>
 </body>
 
 </html>
