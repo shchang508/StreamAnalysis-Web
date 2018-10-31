@@ -21,8 +21,10 @@ public class StreamConvertion {
 	public StreamConvertion(String streampath) throws Exception {
 		createfolder();
 		
+		logger.info("Stream Path : " + streampath);
 		File folder = new File(streampath);
 		File[] listofFiles = folder.listFiles();
+		logger.info("File list : " + listofFiles);
 
 		String xfilepath = path + "xml\\";
 		File xmlFolder = new File(xfilepath);
@@ -38,7 +40,7 @@ public class StreamConvertion {
 		TSReader tsReader = new TSReader();
 		logger.info("--------------------FILE LIST--------------------"); 
 		/* Load stream and export as XML */
-			int count = 0;
+			int count = 1;
 			for (String tsFile : checkFileList) {
 				logger.info("TS File : " + tsFile);
 				if (tsFile.toLowerCase().endsWith(".ts") || tsFile.toLowerCase().endsWith(".trp") || tsFile.toLowerCase().endsWith(".tp") || tsFile.toLowerCase().endsWith(".mpg")) {

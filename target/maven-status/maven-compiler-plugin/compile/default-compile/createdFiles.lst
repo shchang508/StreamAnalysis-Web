@@ -16,6 +16,7 @@ com\jamie\streamAnalysis\action\HelloServlet.class
 com\jamie\streamAnalysis\domain\PMTs.class
 com\jamie\streamAnalysis\domain\NIT_ENTRY.class
 com\jamie\streamAnalysis\domain\PMTs_CHANNEL_ELEMENTARY_STREAM.class
+com\jamie\streamAnalysis\action\SessionCounter.class
 com\jamie\streamAnalysis\domain\NIT.class
 com\jamie\streamAnalysis\util\HexConvter.class
 com\jamie\streamAnalysis\domain\EIT_CHANNEL_EVENT.class

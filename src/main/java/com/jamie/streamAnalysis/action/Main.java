@@ -105,7 +105,7 @@ public class Main extends JFrame {
 
 			loadingFrame.dispose(); // Window will close after generate xml file
 
-			service.genMpegExcel(workbook, mpegList, fileList);
+			service.genMpegExcel(workbook, mpegList, fileList, streamPath);
 
 			String reportName = "report_" + new Date().getTime();
 			String destination = "D:\\Stream Analysis";

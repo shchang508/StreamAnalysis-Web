@@ -74,18 +74,6 @@
 		$('#fader').css('display', 'block');
 	});
 
-	// $(document).ready(function(){
-	//     $(document).ajaxStart(function(){
-	//         $('#fader').css("display", "block");
-	//     });
-	//     $(document).ajaxComplete(function(){
-	//         $('#fader').css("display", "none");
-	//     });
-	//     $("button").click(function(){
-	//         $('#fader').load("demo_ajax_load.asp");
-	//     });
-	// });
-
 	var func = function hello() {
 		alert('hello world');
 		console.log('hello world');
